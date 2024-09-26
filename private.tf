@@ -4,7 +4,7 @@ resource "aws_subnet" "eks_subnet_private_1a" {
   availability_zone = "${data.aws_region.current.name}a"
 
   tags = {
-    Name                              = "private-subnet-1a",
+    Name                              = "${var.project_name}-private-subnet-1a",
     "kubernetes.io/role/internal-elb" = 1
   }
 }
@@ -16,7 +16,7 @@ resource "aws_subnet" "eks_subnet_private_1b" {
   availability_zone = "${data.aws_region.current.name}b"
 
   tags = {
-    Name                              = "private-subnet-1b",
+    Name                              = "${var.project_name}-private-subnet-1b",
     "kubernetes.io/role/internal-elb" = 1
   }
 }
@@ -27,7 +27,7 @@ resource "aws_subnet" "eks_subnet_private_1c" {
   availability_zone = "${data.aws_region.current.name}c"
 
   tags = {
-    Name                              = "private-subnet-1c",
+    Name                              = "${var.project_name}-private-subnet-1c",
     "kubernetes.io/role/internal-elb" = 1
   }
 }
