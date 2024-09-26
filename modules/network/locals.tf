@@ -45,4 +45,9 @@ locals {
       tags       = {}
     }
   }
+
+  subnet_ids = {
+    for k, v in aws_subnet.this : v.tags.Name => v.id
+  }
+  public_subnet_ids = [for k, v in local.subnets : aws_subnet.this[k].id if v.public]
 }
