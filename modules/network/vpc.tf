@@ -33,3 +33,11 @@ resource "aws_subnet" "this" {
     each.value.tags
   )
 }
+
+resource "aws_eip" "nat" {
+  count  = 1
+  domain = "vpc"
+  tags = {
+    "Name" = "${local.namespaced_service_name}-eip"
+  }
+}
