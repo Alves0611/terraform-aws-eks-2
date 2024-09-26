@@ -49,5 +49,6 @@ locals {
   subnet_ids = {
     for k, v in aws_subnet.this : v.tags.Name => v.id
   }
-  public_subnet_ids = [for k, v in local.subnets : aws_subnet.this[k].id if v.public]
+  public_subnet_ids   = [for k, v in local.subnets : aws_subnet.this[k].id if v.public]
+  internet_cidr_block = "0.0.0.0/0"
 }
