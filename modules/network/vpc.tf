@@ -41,3 +41,11 @@ resource "aws_eip" "nat" {
     "Name" = "${local.namespaced_service_name}-eip"
   }
 }
+
+resource "aws_nat_gateway" "this" {
+  allocation_id = aws_eip.nat[0].id
+  subnet_id     = element(local.public_subnet_ids, 0)
+  tags = {
+    "Name" = "${local.namespaced_service_name}-nat-gateway"
+  }
+}
