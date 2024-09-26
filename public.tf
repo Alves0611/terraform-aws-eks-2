@@ -1,7 +1,7 @@
 resource "aws_subnet" "eks_subnet_public_1a" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = cidrsubnet(var.cidr_block, 8, 1)
-  availability_zone       = "us-east-1a"
+  availability_zone       = "${data.aws_region.current}-a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -13,7 +13,7 @@ resource "aws_subnet" "eks_subnet_public_1a" {
 resource "aws_subnet" "eks_subnet_public_1b" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = cidrsubnet(var.cidr_block, 8, 2)
-  availability_zone       = "us-east-1b"
+  availability_zone       = "${data.aws_region.current}-b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -24,7 +24,7 @@ resource "aws_subnet" "eks_subnet_public_1b" {
 resource "aws_subnet" "eks_subnet_public_1c" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = cidrsubnet(var.cidr_block, 8, 3)
-  availability_zone       = "us-east-1c"
+  availability_zone       = "${data.aws_region.current}-c"
   map_public_ip_on_launch = true
 
   tags = {
