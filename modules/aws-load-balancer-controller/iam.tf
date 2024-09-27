@@ -28,3 +28,8 @@ EOF
     }
   )
 }
+
+resource "aws_iam_role_policy_attachment" "eks_controller_role_attachment" {
+  role       = aws_iam_role.eks_controller_role.name
+  policy_arn = aws_iam_policy.eks_controller_policy.arn
+}
