@@ -1,7 +1,9 @@
-output "eks_vpc_config" {
-  value = aws_eks_cluster.eks_cluster.vpc_config
+output "cluster_name" {
+  description = "The name of the EKS cluster"
+  value       = aws_eks_cluster.eks_cluster.id
 }
 
 output "oidc" {
-  value = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
+  description = "The OIDC issuer URL for the EKS cluster"
+  value       = aws_eks_cluster.eks_cluster.identity[0].oidc[0].issuer
 }
