@@ -21,4 +21,8 @@ module "eks_managed_node_group" {
   subnet_private_1a = module.eks_network.private_subnet_ids[0]
   subnet_private_1b = module.eks_network.private_subnet_ids[1]
   subnet_private_1c = module.eks_network.private_subnet_ids[2]
+
+  desired_size = 1
+  min_size     = 1
+  max_size     = 1
 }
