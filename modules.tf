@@ -26,3 +26,9 @@ module "eks_managed_node_group" {
   min_size     = 1
   max_size     = 1
 }
+
+module "eks_aws_load_balancer_controller" {
+  source       = "./modules/aws-load-balancer-controller"
+  project_name = var.project_name
+  cluster_name = module.eks_cluster.cluster_name
+}
