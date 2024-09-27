@@ -21,3 +21,9 @@ resource "aws_iam_role" "eks_mng_role" {
     }
   )
 }
+
+
+resource "aws_iam_role_policy_attachment" "eks_mng_role_attachment_worker" {
+  role       = aws_iam_role.eks_mng_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
+}
